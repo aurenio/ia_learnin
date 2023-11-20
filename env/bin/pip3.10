@@ -1,4 +1,6 @@
-#!/home/nogard/Desktop/codigos/ia_learning/env/bin/python3
+#!/bin/sh
+'''exec' "/home/fb704/Área de Trabalho/ia_learnin/env/bin/python3" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/nogard/Desktop/codigos/ia_learning/env"
+VIRTUAL_ENV="/home/fb704/Área de Trabalho/ia_learnin/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
