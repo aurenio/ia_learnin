@@ -19,3 +19,32 @@ date_bought = url_csv[["bought"]]
 print(date)
 
 print(date_bought)
+
+#para controle vamos separar uma quantidade de elementos, verificamos quantos elementos temos
+print(url_csv.shape)
+
+#vamos pegar 75 elementos para treinamento e o resto para teste
+
+treino_x = date[:75]
+treino_y = date_bought[:75]
+
+print(treino_x.shape)
+
+teste_x = date[75:]
+teste_y = date_bought[75:]
+
+print(teste_y.shape)
+
+print("Treinaremos com treino_x e testaremos com teste_y  ")
+
+#criando o modelo
+
+model = LinearSVC()
+model.fit(treino_x,treino_y)
+preview = model.predict(teste_x)
+
+print(preview)
+
+right = accuracy_score(teste_y,preview)
+
+print(right)
