@@ -1,5 +1,6 @@
 from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 import pandas as pd
 
 
@@ -16,35 +17,23 @@ url_csv = pd.read_csv(url)
 date = url_csv[["home", "how_it_works", "contact"]]
 date_bought = url_csv[["bought"]]
 
-print(date)
-
-print(date_bought)
-
 #para controle vamos separar uma quantidade de elementos, verificamos quantos elementos temos
 print(url_csv.shape)
 
 #vamos pegar 75 elementos para treinamento e o resto para teste
 
-treino_x = date[:75]
-treino_y = date_bought[:75]
+#nesse novo formato, estou definindo uma semente, que vai padronizar as informações aleatorias separadas que o comando train_test_split vai fazer para termos
+#um controle de testes, assim vai melhorar a eficiência e otimizar o codigo, test_size é responsável pela quantidade de parâmetos para teste e para não deixar
+#o codigo com vies errado, vamos estratificar de acordo com o resultado, assim teremos uma mesma proporção de quem compra e quem não compra
 
-print(treino_x.shape)
+SEED = 20
 
-teste_x = date[75:]
-teste_y = date_bought[75:]
+treino_x, teste_x, treino_y, teste_y = train_test_split(date, date_bought, test_size=0.25, random_state=SEED, stratify=date_bought)
 
-print(teste_y.shape)
-
-print("Treinaremos com treino_x e testaremos com teste_y  ")
-
-#criando o modelo
 
 model = LinearSVC()
 model.fit(treino_x,treino_y)
-preview = model.predict(teste_x)
+acurracy = model.predict(teste_x)
+score = accuracy_score(teste_y, acurracy)
 
-print(preview)
-
-right = accuracy_score(teste_y,preview)
-
-print(right)
+print(score)
