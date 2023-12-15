@@ -6,7 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-
+#exemplo de ia não adequada para o tipo de informação
 url = "https://gist.githubusercontent.com/guilhermesilveira/1b7d5475863c15f484ac495bd70975cf/raw/16aff7a0aee67e7c100a2a48b676a2d2d142f646/projects.csv"
 url_info = pd.read_csv(url)
 
@@ -73,3 +73,6 @@ plt.savefig("prova_2_tentativa.png")
 
 
 
+
+
+teste
